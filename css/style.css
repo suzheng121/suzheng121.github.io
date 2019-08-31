@@ -517,9 +517,9 @@ a {
   -webkit-box-align: center;
   text-align: center;
 }
-#header .profilepic img {
-  width: 20%;
-  height: 20%;
+#header .profilepic .profilepic img {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   opacity: 0;
   -webkit-transition: all 0.6s ease-in;
