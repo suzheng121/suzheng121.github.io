@@ -114,7 +114,7 @@
 				<section class="switch-part switch-part3">
 					<div id="js-friends">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/suzheng121) ">smackdown</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/suzheng121 ">smackdown</a>
 			        
 			        </div>
 				</section>
@@ -161,10 +161,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-new-a" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-小白使用hexo+github搭建个人博客" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/31/new-a/" class="article-date">
+      <a href="/2019/08/31/小白使用hexo+github搭建个人博客/" class="article-date">
   	<time datetime="2019-08-31T04:15:52.000Z" itemprop="datePublished">2019-08-31</time>
 </a>
     </div>
@@ -178,8 +178,8 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/31/new-a/">
-        new a
+      <a class="article-title" href="/2019/08/31/小白使用hexo+github搭建个人博客/">
+        小白使用hexo+github搭建个人博客
         
       </a>
     </h1>
@@ -190,7 +190,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>##1.博客环境搭建<br>1.1 安装Git<br>Windows平台：以 Win7 64位机为例<br>到官网下载 Git，一路默认选项安装。本文使用的是Git-2.8.1-64-bit.</p>
+<p>1.2 安装Node.js<br>Windows平台：以 Win7 64位机为例<br>到官网（<a href="https://nodejs.org/en/）下载" target="_blank" rel="noopener">https://nodejs.org/en/）下载</a> Node.js，一路默认选项安装。安装完成后，我们可以进入cmd命令行模式（Windows+R）输入以下命令输入：node-v 测试是否安装成功，正确会出现版本号</p>
+<p>1.3 安装Hexo<br>在我们把Git 和 Node.js 都安装好后,我们就开始安装hexo，在安装之前我们首先创建一个存放博客文件的文件夹，如 blog，然后进入 blog 文件夹，使用cmd命令行模，进到该目录，下面开始安装并使用 Hexo：</p>
+<p>$ npm install -g hexo-cli<br>$ hexo init</p>
+<p>执行命令后，我们可以在blog的文件夹上看到目录如下：</p>
+<p>├── _config.yml<br>├── package.json<br>├── scaffolds<br>├── source<br>|   ├── _drafts<br>|   └── _posts<br>└── themes<br>目录中的_config.yml文件用于存放网站的配置信息，你可以在此配置大部分的参数；<br>scaffolds是存放模板的文件夹，当新建文章时，Hexo会根据scaffold来建立文件；source是资源文件夹，用于存放用户资源，themes是主题文件夹，存放博客主题，Hexo 会根据主题来生成静态页面。<br>在cmd命令模式执行以下命令：<br>$ hexo g<br>$ hexo s<br>则在浏览器中访问http:/<br>/localhost:4000/<br>然后我们安装一个扩展：</p>
+<h2 id="npm-install-hexo-deployer-git-–save-为接下来部署做准备。"><a href="#npm-install-hexo-deployer-git-–save-为接下来部署做准备。" class="headerlink" title="npm install hexo-deployer-git –save 为接下来部署做准备。"></a>npm install hexo-deployer-git –save 为接下来部署做准备。</h2><p>2.博客部署<br>第一步: Github注册<br>打开<a href="https://github.com/，在下图的框中，分别输入自己的用户名，邮箱，密码。然后前往自己刚才填写的邮箱，点开Github发送给你的注册确认信，确认注册，结束注册流程。一定要确认注册，否则无法使用gh-pages！" target="_blank" rel="noopener">https://github.com/，在下图的框中，分别输入自己的用户名，邮箱，密码。然后前往自己刚才填写的邮箱，点开Github发送给你的注册确认信，确认注册，结束注册流程。一定要确认注册，否则无法使用gh-pages！</a><br>第二步: 创建代码库<br>登陆之后，点击页面右上角的加号，选择New repository：<br>新建代码库，入代码库创建页面：<br>在Repository name下填写yourname.github.io<br>第二步:<br>打开_config.yml文件，找到：</p>
+<h1 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h1><h2 id="Docs-https-hexo-io-docs-deployment-html（在文件最后）"><a href="#Docs-https-hexo-io-docs-deployment-html（在文件最后）" class="headerlink" title="Docs: https://hexo.io/docs/deployment.html（在文件最后）"></a>Docs: <a href="https://hexo.io/docs/deployment.html（在文件最后）" target="_blank" rel="noopener">https://hexo.io/docs/deployment.html（在文件最后）</a></h2><p>修改内容为：deploy:<br>  type: git<br>  repo: <a href="https://yourname.github.io" target="_blank" rel="noopener">https://yourname.github.io</a><br>  branch: master<br> 第三步:<br> hexo deploy或hexo d完成部署。<br> 然后本地的静态网页部署到服务器上，即可通过<a href="https://GitHub用户名.github.io访问部署出来的页面。" target="_blank" rel="noopener">https://GitHub用户名.github.io访问部署出来的页面。</a></p>
+
       
     </div>
     
