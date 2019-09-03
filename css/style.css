@@ -518,8 +518,8 @@ a {
   text-align: center;
 }
 #header .profilepic .profilepic img {
-  width: 120px;
-  height: 120px;
+  width: 20%;
+  height: 20%;
   border-radius: 50%;
   opacity: 0;
   -webkit-transition: all 0.6s ease-in;

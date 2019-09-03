@@ -161,6 +161,71 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-webpack学习一" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/09/03/webpack学习一/" class="article-date">
+  	<time datetime="2019-09-03T08:17:48.000Z" itemprop="datePublished">2019-09-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/03/webpack学习一/">
+        webpack学习一
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-安装Node-js"><a href="#一-安装Node-js" class="headerlink" title="一.安装Node.js:"></a>一.安装Node.js:</h2><p>1.首先到node.js官网<a href="https://nodejs.org/en/下载安装node.js。" target="_blank" rel="noopener">https://nodejs.org/en/下载安装node.js。</a><br>在安装完成后，我们可以进入cmd命令行模式（Windows+R）输入以下命令输入：node-v 测试是否安装成功，正确会出现版本号</p>
+<p>2.安装好node.js之后，进行全局安装webpack：<br>在cmd命令模式下，运行：<br>npm install -g webpack</p>
+<hr>
+<h2 id="二-创建文件配置项："><a href="#二-创建文件配置项：" class="headerlink" title="二.创建文件配置项："></a>二.创建文件配置项：</h2><p>1.创建项目文件夹：<br>1.1  在终端使用cmd命令进入该文件夹目录，运行命令：<br>npm init<br>（输入这个命令后，终端会问你一系列诸如项目名称，项目描述，作者等信息，不过不用担心，如果你不准备在npm中发布你的模块，这些问题的答案都不重要，回车默认即可）这个时候你会发现所创建的文件夹上多了一个文件名称为：package.json文件。<br>内容：<br>{<br>  “name”: “one-webpack”,<br>  “version”: “1.0.0”,<br>  “description”: “”,<br>  “main”: “index.js”,<br>  “scripts”: {<br>    “test”: “echo &quot;Error: no test specified&quot; &amp;&amp; exit 1”<br>  },<br>  “author”: “”,<br>  “license”: “ISC”,<br>  “devDependencies”: {<br>    “webpack”: “^4.39.3”<br>  }<br>}</p>
+<p>1.2在package.json文件已经就绪，我们在本项目中安装Webpack作为依赖包：<br>在终端运行命令：</p>
+<p>npm install –save-dev webpack</p>
+<p> 执行命令之后，我们需要在该文件夹进行创建一些需要用的项目文件：<br>创建<code>dist</code>文件夹， 是项目打包之后输出的文件夹<br>创建<code>src</code>文件夹<br>创建<code>/src/index.html</code>这是项目的首页<br>创建<code>/src/main.js</code>  项目的入口文件<br>在所建的文件上写上内容我们就可以执行命令：<br> <code>webpack .\src\main.js -o .\dist\bundle.js</code><br> 这个时候我们就可以看到 我们通过webpack打包好的文件dist\bundle.js。</p>
+<p>1.3安装 webpack-dev-server：<br>因为<code>webpack</code>打包命令每次都要输入十分麻烦，所以我们可以安装  <code>webpack-dev-server</code>：</p>
+<p><code>cnpm i webpack-dev-server -D</code>,同时根据提示需要同时在项目本地中安装<code>webpack</code><br><code>cnpm i webpack -D</code>。</p>
+<p>在安装好<code>webpack-dev-server</code>之后，我们接下来所需要的是建一个配置webpack的文件，<br>每个目录下都必须有一个webpack.config.js，它的作用就好比Gulpfile.js、或者 Gruntfile.js，就是一个项目配置，告诉webpack需要做什么。<br><code>webpack.config.js</code>：<br>const path = require(‘path’)<br>module.exports = {</p>
+<p>  entry: path.join(<strong>dirname, ‘./src/main.js’),// 入口，表示，要使用 webpack 打包哪个文件<br>  output: { // 输出文件相关的配置<br>    path: path.join(</strong>dirname, ‘./dist’), // 指定 打包好的文件，输出到哪个目录中去<br>    filename: ‘bundle.js’ // 这是指定 输出的文件的名称<br>  }<br>  这里添加上项目的输入和输入文件,所以在我们想用webpack打包时只需要<code>webpack</code>命令即可打包。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-小白使用hexo+github搭建个人博客" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -265,73 +330,6 @@
 <p>3.2由于 npm 安装速度慢，本教程使用了淘宝的镜像及其命令 cnpm，安装使用介绍参照：使用淘宝 NPM 镜像。</p>
 <p>npm 版本需要大于 3.0，如果低于此版本需要升级它：<br>    进入cmd命令行模式输入以下命令输入：npm install cnpm -g。</p>
 <p>在在用 Vue.js 构建大型应用时推荐使用 NPM 安装：<br>    进入cmd命令行模式输入以下命令输入：cnpm install vue。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/30/hello-world/" class="article-date">
-  	<time datetime="2019-08-30T08:25:31.089Z" itemprop="datePublished">2019-08-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/hello-world/">
-        Hello World
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
       
     </div>
