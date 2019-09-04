@@ -3,23 +3,23 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>webpack学习一 | Sands</title>
+  <title>&#39;webpack学习二&#39; | Sands</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一.安装Node.js:1.首先到node.js官网https://nodejs.org/en/下载安装node.js。在安装完成后，我们可以进入cmd命令行模式（Windows+R）输入以下命令输入：node-v 测试是否安装成功，正确会出现版本号 2.安装好node.js之后，进行全局安装webpack：在cmd命令模式下，运行：npm install -g webpack  二.创建文件配置">
+  <meta name="description" content="1.webpack-dev-server 的使用在使用 cnpm i webpack-dev-server -D 命令安装好 ‘webpack-dev-server’,为了用webpack-dev-server,我们还需要在package.json中添加脚本:“scripts”: {    “test”: “echo &amp;quot;Error: no test specified&amp;quot; &amp;am">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack学习一">
-<meta property="og:url" content="https://suzheng121.github.io/2019/09/03/webpack学习一/index.html">
+<meta property="og:title" content="&#39;webpack学习二&#39;">
+<meta property="og:url" content="https://suzheng121.github.io/2019/09/04/webpack学习二/index.html">
 <meta property="og:site_name" content="Sands">
-<meta property="og:description" content="一.安装Node.js:1.首先到node.js官网https://nodejs.org/en/下载安装node.js。在安装完成后，我们可以进入cmd命令行模式（Windows+R）输入以下命令输入：node-v 测试是否安装成功，正确会出现版本号 2.安装好node.js之后，进行全局安装webpack：在cmd命令模式下，运行：npm install -g webpack  二.创建文件配置">
+<meta property="og:description" content="1.webpack-dev-server 的使用在使用 cnpm i webpack-dev-server -D 命令安装好 ‘webpack-dev-server’,为了用webpack-dev-server,我们还需要在package.json中添加脚本:“scripts”: {    “test”: “echo &amp;quot;Error: no test specified&amp;quot; &amp;am">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-03T08:48:12.190Z">
+<meta property="og:updated_time" content="2019-09-04T09:13:01.403Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack学习一">
-<meta name="twitter:description" content="一.安装Node.js:1.首先到node.js官网https://nodejs.org/en/下载安装node.js。在安装完成后，我们可以进入cmd命令行模式（Windows+R）输入以下命令输入：node-v 测试是否安装成功，正确会出现版本号 2.安装好node.js之后，进行全局安装webpack：在cmd命令模式下，运行：npm install -g webpack  二.创建文件配置">
+<meta name="twitter:title" content="&#39;webpack学习二&#39;">
+<meta name="twitter:description" content="1.webpack-dev-server 的使用在使用 cnpm i webpack-dev-server -D 命令安装好 ‘webpack-dev-server’,为了用webpack-dev-server,我们还需要在package.json中添加脚本:“scripts”: {    “test”: “echo &amp;quot;Error: no test specified&amp;quot; &amp;am">
   
     <link rel="alternative" href="/atom.xml" title="Sands" type="application/atom+xml">
   
@@ -163,11 +163,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-webpack学习一" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-webpack学习二" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/09/03/webpack学习一/" class="article-date">
-  	<time datetime="2019-09-03T08:17:48.000Z" itemprop="datePublished">2019-09-03</time>
+      <a href="/2019/09/04/webpack学习二/" class="article-date">
+  	<time datetime="2019-09-04T08:47:40.000Z" itemprop="datePublished">2019-09-04</time>
 </a>
     </div>
   
@@ -180,7 +180,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      webpack学习一
+      &#39;webpack学习二&#39;
       
     </h1>
   
@@ -198,18 +198,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-安装Node-js"><a href="#一-安装Node-js" class="headerlink" title="一.安装Node.js:"></a>一.安装Node.js:</h2><p>1.首先到node.js官网<a href="https://nodejs.org/en/下载安装node.js。" target="_blank" rel="noopener">https://nodejs.org/en/下载安装node.js。</a><br>在安装完成后，我们可以进入cmd命令行模式（Windows+R）输入以下命令输入：node-v 测试是否安装成功，正确会出现版本号</p>
-<p>2.安装好node.js之后，进行全局安装webpack：<br>在cmd命令模式下，运行：<br>npm install -g webpack</p>
+        <h2 id="1-webpack-dev-server-的使用"><a href="#1-webpack-dev-server-的使用" class="headerlink" title="1.webpack-dev-server 的使用"></a>1.webpack-dev-server 的使用</h2><p>在使用 <code>cnpm i webpack-dev-server -D</code> 命令安装好 ‘webpack-dev-server’,<br>为了用<code>webpack-dev-server</code>,我们还需要在<code>package.json</code>中添加脚本:<br>“scripts”: {<br>    “test”: “echo &quot;Error: no test specified&quot; &amp;&amp; exit 1”,<br>    “dev”: “webpack-dev-server –open –port 3000 –contentBase src –hot”,<br>  }，<br>  修改好了<code>package.json</code>文件之后，我们就可以使用<code>npm run dev</code>命令，启动项目。<br>  <code>webpack-dev-server</code>会帮我们托管资源此时<code>script</code>标签中<code>../dist/bundle.js</code>路径是错误的，正确的应该是<code>/bundle.js</code>。</p>
+<p>  这时候我们使用<code>html-webpack-plugin</code>插件解决这个问题，可以在内存中根据指定的模板页面生成一份内存中的首页，同时自动把打包好的bundle注入到页面的底部，同时如果要配置插件，需要在导出的对象中挂在一个plugins节点 。</p>
+<p> 1.1 运行<code>cnpm i html-webpack-plugin --save-dev</code>安装到开发依赖<br> 1.2 修改<code>webpack.config.js</code>配置文件如下：</p>
+<p>  const htmlWebpackPlugin = require(‘html-webpack-plugin’)<br>    module.exports = {<br>    plugins: [<br>        new htmlWebpackPlugin({<br>            template: path.join(__dirname, ‘./src/index.html’), //制定模板文件路径<br>            filename: ‘index.html’   //指定生成页面的名称<br>        })<br>    ],<br>}</p>
 <hr>
-<h2 id="二-创建文件配置项："><a href="#二-创建文件配置项：" class="headerlink" title="二.创建文件配置项："></a>二.创建文件配置项：</h2><p>1.创建项目文件夹：<br>1.1  在终端使用cmd命令进入该文件夹目录，运行命令：<br>npm init<br>（输入这个命令后，终端会问你一系列诸如项目名称，项目描述，作者等信息，不过不用担心，如果你不准备在npm中发布你的模块，这些问题的答案都不重要，回车默认即可）这个时候你会发现所创建的文件夹上多了一个文件名称为：package.json文件。<br>内容：<br>{<br>  “name”: “one-webpack”,<br>  “version”: “1.0.0”,<br>  “description”: “”,<br>  “main”: “index.js”,<br>  “scripts”: {<br>    “test”: “echo &quot;Error: no test specified&quot; &amp;&amp; exit 1”<br>  },<br>  “author”: “”,<br>  “license”: “ISC”,<br>  “devDependencies”: {<br>    “webpack”: “^4.39.3”<br>  }<br>}</p>
-<p>1.2在package.json文件已经就绪，我们在本项目中安装Webpack作为依赖包：<br>在终端运行命令：</p>
-<p>npm install –save-dev webpack</p>
-<p> 执行命令之后，我们需要在该文件夹进行创建一些需要用的项目文件：<br>创建<code>dist</code>文件夹， 是项目打包之后输出的文件夹<br>创建<code>src</code>文件夹<br>创建<code>/src/index.html</code>这是项目的首页<br>创建<code>/src/main.js</code>  项目的入口文件<br>在所建的文件上写上内容我们就可以执行命令：<br> <code>webpack .\src\main.js -o .\dist\bundle.js</code><br> 这个时候我们就可以看到 我们通过webpack打包好的文件dist\bundle.js。</p>
-<p>1.3安装 webpack-dev-server：<br>因为<code>webpack</code>打包命令每次都要输入十分麻烦，所以我们可以安装  <code>webpack-dev-server</code>：</p>
-<p><code>cnpm i webpack-dev-server -D</code>,同时根据提示需要同时在项目本地中安装<code>webpack</code><br><code>cnpm i webpack -D</code>。</p>
-<p>在安装好<code>webpack-dev-server</code>之后，我们接下来所需要的是建一个配置webpack的文件，<br>每个目录下都必须有一个webpack.config.js，它的作用就好比Gulpfile.js、或者 Gruntfile.js，就是一个项目配置，告诉webpack需要做什么。<br><code>webpack.config.js</code>：<br>const path = require(‘path’)<br>module.exports = {</p>
-<p>  entry: path.join(<strong>dirname, ‘./src/main.js’),// 入口，表示，要使用 webpack 打包哪个文件<br>  output: { // 输出文件相关的配置<br>    path: path.join(</strong>dirname, ‘./dist’), // 指定 打包好的文件，输出到哪个目录中去<br>    filename: ‘bundle.js’ // 这是指定 输出的文件的名称<br>  }<br>  这里添加上项目的输入和输入文件,所以在我们想用webpack打包时只需要<code>webpack</code>命令即可打包。</p>
-
+<h2 id="2-webpack中的loader-配置处理css，scss，less。"><a href="#2-webpack中的loader-配置处理css，scss，less。" class="headerlink" title="2.webpack中的loader-配置处理css，scss，less。"></a>2.webpack中的loader-配置处理css，scss，less。</h2><p>1.在src中添加css,在/css中创建css文件<br>然后在<code>main.js</code>中添加<br>import ‘./css/index.css<br>这样导入css之类的文件会报错，因为webpack处理不了非JS文件。<br>这个时候我们需要安装<code>style-loader</code>和<code>css-loader</code>：<br>本地运行 <code>cnpm i style-loader css-loader -D</code>，<br>        <code>npm install less less-loader --save -D</code>，<br>        <code>cnpm i sass-loader -D</code></p>
+<p>修改webpack.config.js文件：</p>
+<p>module:{<br>        rules: [</p>
+<pre><code>        {test: /\.css$/, use:[&apos;style-loader&apos;, &apos;css-loader&apos;]}, //配置.css文件的第三方loader规则
+        {test: /\.less$/, use:[&apos;style-loader&apos;, &apos;css-loader&apos; ,&apos;less-loader&apos;]}, //配置处理.less文件的第三方loader规则 
+        {test: /\.scss/, use:[&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;less-loader&apos;]}
+    ]
+}</code></pre>
       
     </div>
     
@@ -218,18 +219,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/09/04/webpack学习二/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          &#39;webpack学习二&#39;
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/31/小白使用hexo+github搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">小白使用hexo+github搭建个人博客</div>
+    <a href="/2019/09/03/webpack学习一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack学习一</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -239,7 +231,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="webpack学习一" data-title="webpack学习一" data-url="https://suzheng121.github.io/2019/09/03/webpack学习一/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="webpack学习一">
+<div class="ds-share share" data-thread-key="webpack学习二" data-title="&#39;webpack学习二&#39;" data-url="https://suzheng121.github.io/2019/09/04/webpack学习二/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="&#39;webpack学习二&#39;">
     <div class="ds-share-inline">
       <ul  class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
