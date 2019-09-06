@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Sands">
 <meta property="og:description" content="1.webpack-dev-server 的使用在使用 cnpm i webpack-dev-server -D 命令安装好 ‘webpack-dev-server’,为了用webpack-dev-server,我们还需要在package.json中添加脚本:“scripts”: {    “test”: “echo &amp;quot;Error: no test specified&amp;quot; &amp;am">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-04T09:13:01.403Z">
+<meta property="og:updated_time" content="2019-09-06T13:24:25.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;webpack学习二&#39;">
 <meta name="twitter:description" content="1.webpack-dev-server 的使用在使用 cnpm i webpack-dev-server -D 命令安装好 ‘webpack-dev-server’,为了用webpack-dev-server,我们还需要在package.json中添加脚本:“scripts”: {    “test”: “echo &amp;quot;Error: no test specified&amp;quot; &amp;am">
@@ -210,7 +210,29 @@
         {test: /\.less$/, use:[&apos;style-loader&apos;, &apos;css-loader&apos; ,&apos;less-loader&apos;]}, //配置处理.less文件的第三方loader规则 
         {test: /\.scss/, use:[&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;less-loader&apos;]}
     ]
-}</code></pre>
+}</code></pre><hr>
+<h2 id="3-使用babel处理高级JS语法"><a href="#3-使用babel处理高级JS语法" class="headerlink" title="3.使用babel处理高级JS语法"></a>3.使用babel处理高级JS语法</h2><ol>
+<li><p>运行<code>cnpm i babel-core babel-loader babel-plugin-transform-runtime --save-dev</code>安装babel的相关loader包</p>
+</li>
+<li><p>运行<code>cnpm i babel-preset-es2015 babel-preset-stage-0 --save-dev</code>安装babel转换的语法</p>
+</li>
+<li><p>在<code>webpack.config.js</code>中添加相关loader模块，其中需要注意的是，一定要把<code>node_modules</code>文件夹添加到排除项：</p>
+</li>
+</ol>
+<p>{ test: /.js$/, use: ‘babel-loader’, exclude: /node_modules/ }</p>
+<ol start="4">
+<li>在项目根目录中添加<code>.babelrc</code>文件，并修改这个配置文件如下：<pre><code>{
+ &quot;presets&quot;:[&quot;es2015&quot;, &quot;stage-0&quot;],
+ &quot;plugins&quot;:[&quot;transform-runtime&quot;]
+}
+</code></pre></li>
+</ol>
+<hr>
+<ol start="5">
+<li><strong>注意：语法插件<code>babel-preset-es2015</code>可以更新为<code>babel-preset-env</code>，它包含了所有的ES相关的语法；</strong></li>
+</ol>
+<h2 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h2><p><a href="https://segmentfault.com/p/1210000008466178" target="_blank" rel="noopener">babel-preset-env：你需要的唯一Babel插件</a><br><a href="https://segmentfault.com/a/1190000009065987" target="_blank" rel="noopener">Runtime transform 运行时编译es6</a></p>
+
       
     </div>
     
@@ -218,6 +240,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/09/06/webpack学习三/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          webpack学习三
+        
+      </div>
+    </a>
   
   
     <a href="/2019/09/03/webpack学习一/" id="article-nav-older" class="article-nav-link-wrap">

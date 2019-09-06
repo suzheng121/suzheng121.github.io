@@ -161,6 +161,209 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-webpack学习三" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/09/06/webpack学习三/" class="article-date">
+  	<time datetime="2019-09-06T13:14:12.000Z" itemprop="datePublished">2019-09-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/06/webpack学习三/">
+        webpack学习三
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-在webpack中配置-vue组件页面的解析"><a href="#一-在webpack中配置-vue组件页面的解析" class="headerlink" title="一.在webpack中配置.vue组件页面的解析"></a>一.在webpack中配置.vue组件页面的解析</h2><ol>
+<li><p>运行<code>cnpm i vue -S</code>将vue安装为运行依赖；</p>
+</li>
+<li><p>运行<code>cnpm i vue-loader vue-template-compiler -D</code>将解析转换vue的包安装为开发依赖；</p>
+</li>
+<li><p>运行<code>cnpm i style-loader css-loader -D</code>将解析转换CSS的包安装为开发依赖，因为.vue文件中会写CSS样式；</p>
+</li>
+<li><p>在<code>webpack.config.js</code>中，添加如下<code>module</code>规则：</p>
+</li>
+</ol>
+<p>module: {</p>
+<pre><code>rules: [
+
+  { test: /\.css$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;] },
+
+  { test: /\.vue$/, use: &apos;vue-loader&apos; }
+
+]</code></pre><p>  }</p>
+<ol start="5">
+<li>创建<code>App.js</code>组件页面：</li>
+</ol>
+<pre><code>&lt;template&gt;
+
+  &lt;!-- 注意：在 .vue 的组件中，template 中必须有且只有唯一的根元素进行包裹，一般都用 div 当作唯一的根元素 --&gt;
+
+  &lt;div&gt;
+
+    &lt;h1&gt;这是APP组件 - {{msg}}&lt;/h1&gt;
+
+    &lt;h3&gt;我是h3&lt;/h3&gt;
+
+  &lt;/div&gt;
+
+&lt;/template&gt;
+
+
+
+&lt;script&gt;
+
+// 注意：在 .vue 的组件中，通过 script 标签来定义组件的行为，需要使用 ES6 中提供的 export default 方式，导出一个vue实例对象
+
+export default {
+
+  data() {
+
+    return {
+
+      msg: &apos;OK&apos;
+
+    }
+
+  }
+
+}
+
+&lt;/script&gt;
+
+
+
+&lt;style scoped&gt;
+
+h1 {
+
+  color: red;
+
+}
+
+&lt;/style&gt;</code></pre><ol start="6">
+<li>创建<code>main.js</code>入口文件：</li>
+</ol>
+<pre><code>// 导入 Vue 组件
+
+import Vue from &apos;vue&apos;
+
+
+
+// 导入 App组件
+
+import App from &apos;./components/App.vue&apos;
+
+
+
+// 创建一个 Vue 实例，使用 render 函数，渲染指定的组件
+
+var vm = new Vue({
+
+  el: &apos;#app&apos;,
+
+  render: c =&gt; c(App)
+
+});</code></pre><hr>
+<h2 id="二-在使用webpack构建的Vue项目中使用模板对象？"><a href="#二-在使用webpack构建的Vue项目中使用模板对象？" class="headerlink" title="二.在使用webpack构建的Vue项目中使用模板对象？"></a>二.在使用webpack构建的Vue项目中使用模板对象？</h2><ol>
+<li>在<code>webpack.config.js</code>中添加<code>resolve</code>属性：</li>
+</ol>
+<p>resolve: {<br>    alias: {<br>      ‘vue$’: ‘vue/dist/vue.esm.js’<br>    }<br>  }</p>
+<hr>
+<h2 id="三-ES6中语法使用总结"><a href="#三-ES6中语法使用总结" class="headerlink" title="三.ES6中语法使用总结"></a>三.ES6中语法使用总结</h2><ol>
+<li><p>使用 <code>export default</code> 和 <code>export</code> 导出模块中的成员; 对应ES5中的 <code>module.exports</code> 和 <code>export</code></p>
+</li>
+<li><p>使用 <code>import ** from **</code> 和 <code>import &#39;路径&#39;</code> 还有 <code>import {a, b} from &#39;模块标识&#39;</code> 导入其他模块</p>
+</li>
+<li><p>使用箭头函数：<code>(a, b)=&gt; { return a-b; }</code></p>
+</li>
+</ol>
+<hr>
+<h2 id="四-在vue组件页面中，集成vue-router路由模块"><a href="#四-在vue组件页面中，集成vue-router路由模块" class="headerlink" title="四. 在vue组件页面中，集成vue-router路由模块"></a>四. 在vue组件页面中，集成vue-router路由模块</h2><p><a href="https://router.vuejs.org/" target="_blank" rel="noopener">vue-router官网</a></p>
+<ol>
+<li>导入路由模块：</li>
+</ol>
+<p>import VueRouter from ‘vue-router’</p>
+<ol start="2">
+<li>安装路由模块：</li>
+</ol>
+<p>Vue.use(VueRouter);</p>
+<ol start="3">
+<li>导入需要展示的组件:</li>
+</ol>
+<p>import login from ‘./components/account/login.vue’</p>
+<p>import register from ‘./components/account/register.vue’</p>
+<ol start="4">
+<li>创建路由对象:</li>
+</ol>
+<p>var router = new VueRouter({</p>
+<p>  routes: [</p>
+<pre><code>{ path: &apos;/&apos;, redirect: &apos;/login&apos; },
+
+{ path: &apos;/login&apos;, component: login },
+
+{ path: &apos;/register&apos;, component: register }</code></pre><p>  ]</p>
+<p>});</p>
+<ol start="5">
+<li>将路由对象，挂载到 Vue 实例上:</li>
+</ol>
+<p>var vm = new Vue({</p>
+<p>  el: ‘#app’,</p>
+<p>  // render: c =&gt; { return c(App) }</p>
+<p>  render(c) {</p>
+<pre><code>return c(App);</code></pre><p>  },</p>
+<p>  router // 将路由对象，挂载到 Vue 实例上</p>
+<p>});</p>
+<ol start="6">
+<li>改造App.vue组件，在 template 中，添加<code>router-link</code>和<code>router-view</code>：</li>
+</ol>
+<pre><code>&lt;router-link to=&quot;/login&quot;&gt;登录&lt;/router-link&gt;
+
+&lt;router-link to=&quot;/register&quot;&gt;注册&lt;/router-link&gt;
+
+
+
+&lt;router-view&gt;&lt;/router-view&gt;</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-webpack学习二" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -202,7 +405,29 @@
         {test: /\.less$/, use:[&apos;style-loader&apos;, &apos;css-loader&apos; ,&apos;less-loader&apos;]}, //配置处理.less文件的第三方loader规则 
         {test: /\.scss/, use:[&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;less-loader&apos;]}
     ]
-}</code></pre>
+}</code></pre><hr>
+<h2 id="3-使用babel处理高级JS语法"><a href="#3-使用babel处理高级JS语法" class="headerlink" title="3.使用babel处理高级JS语法"></a>3.使用babel处理高级JS语法</h2><ol>
+<li><p>运行<code>cnpm i babel-core babel-loader babel-plugin-transform-runtime --save-dev</code>安装babel的相关loader包</p>
+</li>
+<li><p>运行<code>cnpm i babel-preset-es2015 babel-preset-stage-0 --save-dev</code>安装babel转换的语法</p>
+</li>
+<li><p>在<code>webpack.config.js</code>中添加相关loader模块，其中需要注意的是，一定要把<code>node_modules</code>文件夹添加到排除项：</p>
+</li>
+</ol>
+<p>{ test: /.js$/, use: ‘babel-loader’, exclude: /node_modules/ }</p>
+<ol start="4">
+<li>在项目根目录中添加<code>.babelrc</code>文件，并修改这个配置文件如下：<pre><code>{
+ &quot;presets&quot;:[&quot;es2015&quot;, &quot;stage-0&quot;],
+ &quot;plugins&quot;:[&quot;transform-runtime&quot;]
+}
+</code></pre></li>
+</ol>
+<hr>
+<ol start="5">
+<li><strong>注意：语法插件<code>babel-preset-es2015</code>可以更新为<code>babel-preset-env</code>，它包含了所有的ES相关的语法；</strong></li>
+</ol>
+<h2 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h2><p><a href="https://segmentfault.com/p/1210000008466178" target="_blank" rel="noopener">babel-preset-env：你需要的唯一Babel插件</a><br><a href="https://segmentfault.com/a/1190000009065987" target="_blank" rel="noopener">Runtime transform 运行时编译es6</a></p>
+
       
     </div>
     
